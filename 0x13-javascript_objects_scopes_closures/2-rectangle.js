@@ -1,12 +1,11 @@
+#!/usr/bin/node
 class Rectangle {
   constructor (w, h) {
-    if (w > 0 && Number.isInteger(w) && h > 0 && Number.isInteger(h)) {
-      this.width = w;
-      this.height = h;
-    } else {
+    if (parseInt(w) <= 0 || parseInt(h) <= 0) {
       return {};
     }
+    this.width = w;
+    this.height = h;
   }
 }
-
 module.exports = Rectangle;
