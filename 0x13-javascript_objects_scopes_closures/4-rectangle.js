@@ -20,5 +20,12 @@ Rectangle.prototype.print = function () {
     myArray = '';
   }
 };
+Rectangle.prototype.rotate = function () {
+  [this.width, this.height] = [this.height, this.width];
+};
 
+Rectangle.prototype.double = function () {
+  this.width = this.width * 2;
+  this.height = this.height * 2;
+};
 module.exports = Rectangle;
