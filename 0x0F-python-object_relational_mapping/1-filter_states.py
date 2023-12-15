@@ -6,7 +6,7 @@ import MySQLdb
 
 if __name__ == "__main__":
     con = MySQLdb.connect(host="localhost", port=3306, user=sys.argv[1],
-                          passwd=sys.argv[2], db=sys.argv[3], port=3306)
+                          passwd=sys.argv[2], db=sys.argv[3])
     cursor = con.cursor()
     cursor.execute("""Select * from states where name Like
                 Binary 'N%' order by states.id""")
