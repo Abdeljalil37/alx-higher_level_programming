@@ -13,7 +13,7 @@ if __name__ == "__main__":
     curs.execute("""Select c.name from states s, cities c where
                   c.state_id = s.id and s.name=%s""", (sys.argv[4],))
     rows = curs.fetchall()
-    list = list(row[0] for row in rows)
+    list = tuple(row[0] for row in rows)
     print(", ".join(list))
     curs.close()
     con.close()
