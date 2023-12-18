@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""script that prints the State object with
- the name passed as argument from the database"""
+"""script that adds the State object “Louisiana” to the database"""
 
 from model_state import State, Base
 from sqlalchemy import create_engine
@@ -16,9 +15,9 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    Isexists = session.query(State).filter(State.name == argv[4],)
-    if Isexists:
-        print(Isexists[0].id)
-    else:
-        print("Not found")
+
+    insert_line = State(name='Louisiana')
+    session.add(insert_line)
+    session.commit()
+    print(insert_line.id)
     session.close()
