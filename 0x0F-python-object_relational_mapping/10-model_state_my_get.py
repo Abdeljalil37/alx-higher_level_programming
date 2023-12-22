@@ -17,8 +17,8 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
     Isexists = session.query(State).filter(State.name == argv[4],)
-    if Isexists:
+    try:
         print(Isexists[0].id)
-    else:
+    except IndexError:
         print("Not found")
     session.close()
