@@ -13,5 +13,4 @@ url = sys.argv[1]
 req = request.Request(url)
 
 with request.urlopen(req) as response:
-    x_request_id = response.info().get('X-Request-Id')
-    print(x_request_id)
+    print(dict(response.headers).get("X-Request-Id"))
