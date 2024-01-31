@@ -4,23 +4,22 @@ const request = require('request');
 const apiUrl = process.argv[2];
 
 request.get(apiUrl, (error, response, body) => {
-    if (error) {
-        console.error(error);
-    } else {
-        const tasks = JSON.parse(body);
-        const completedTasks = {};
+  if (error) {
+    console.error(error);
+  } else {
+    const tasks = JSON.parse(body);
+    const completedTasks = {};
 
-        tasks.forEach(task => {
-            if (task.completed) {
-                if (completedTasks[task.userId]) {
-                    completedTasks[task.userId]++;
-                } else {
-                    completedTasks[task.userId] = 1;
-                }
-            }
-        });
+    tasks.forEach(task => {
+      if (task.completed) {
+        if (completedTasks[task.userId]) {
+          completedTasks[task.userId]++;
+        } else {
+          completedTasks[task.userId] = 1;
+        }
+      }
+    });
 
-        console.log(completedTasks);
-    }
+    console.log(completedTasks);
+  }
 });
-
