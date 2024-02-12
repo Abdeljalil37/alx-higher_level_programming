@@ -1,4 +1,3 @@
-#!/usr/bin/node
 $(document).ready(function () {
     $.ajax({
         url: 'https://hellosalut.stefanbohacek.dev/?lang=fr',
